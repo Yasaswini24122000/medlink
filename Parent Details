@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .info {
+            margin: 10px 0;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="info"><span class="label">Name:</span> Medcis Pathlabs Chennai</div>
+    <div class="info"><span class="label">Contact:</span> 7702292929</div>
+    <div class="info"><span class="label">Email:</span> <a href="mailto:reports.hyd@manipaltrutest.com">reports.hyd@manipaltrutest.com</a></div>
+    <div class="info"><span class="label">Alternative Contact:</span> -</div>
+    <div class="info"><span class="label">Alternative Email:</span> -</div>
+    <div class="info"><span class="label">Address:</span> Chennai, Tamil Nadu, India</div>
+</div>
+
+</body>
+</html>
