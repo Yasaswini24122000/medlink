@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Search Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px;
+            background: white;
+            gap: 8px;
+        }
+        .input-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+        }
+        .icon {
+            color: gray;
+        }
+        .flag {
+            width: 20px;
+            height: 15px;
+        }
+        .search-btn {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .search-btn:hover {
+            background: darkblue;
+        }
+        .show-more {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .show-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <!-- Patient Name -->
+    <div class="form-group">
+        <label>Patient Name</label>
+        <div class="input-box">
+            <input type="text" placeholder="Enter Full Name">
+            🔍 <!-- Search Icon -->
+        </div>
+    </div>
+
+    <!-- Patient Contact -->
+    <div class="form-group">
+        <label>Patient Contact</label>
+        <div class="input-box">
+            🇺🇸 <!-- Country Flag -->
+            <input type="text" placeholder="Enter Contact">
+            🔍 <!-- Search Icon -->
+        </div>
+    </div>
+
+    <!-- Patient DOB -->
+    <div class="form-group">
+        <label>Patient DOB</label>
+        <div class="input-box">
+            <input type="text" placeholder="Select Date of Birth DD/MM/YYYY">
+        </div>
+    </div>
+
+    <!-- Search Button -->
+    <button class="search-btn">
+        🔍 Search
+    </button>
+
+    <!-- Show More -->
+    <a href="#" class="show-more">
+        Show More ⬇
+    </a>
+</div>
+
+</body>
+</html>
