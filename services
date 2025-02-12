@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .service-list li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .service-list li:hover {
+            background-color: #e9ecef;
+        }
+        .service-list h3 {
+            margin: 0;
+            color: #007bff;
+        }
+        .service-list p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Hospital Services</h1>
+        <ul class="service-list">
+            <li>
+                <h3>Emergency Care</h3>
+                <p>24/7 emergency services with state-of-the-art facilities and experienced staff.</p>
+            </li>
+            <li>
+                <h3>General Surgery</h3>
+                <p>Comprehensive surgical services including minimally invasive procedures.</p>
+            </li>
+            <li>
+                <h3>Cardiology</h3>
+                <p>Advanced cardiac care, including diagnostics, treatment, and rehabilitation.</p>
+            </li>
+            <li>
+                <h3>Maternity and Child Care</h3>
+                <p>Specialized care for mothers and newborns, including prenatal and postnatal services.</p>
+            </li>
+            <li>
+                <h3>Orthopedics</h3>
+                <p>Treatment for bone and joint disorders, including surgeries and physical therapy.</p>
+            </li>
+            <li>
+                <h3>Radiology and Imaging</h3>
+                <p>Advanced imaging services like X-rays, MRIs, and CT scans for accurate diagnostics.</p>
+            </li>
+            <li>
+                <h3>Oncology</h3>
+                <p>Comprehensive cancer care, including chemotherapy and radiation therapy.</p>
+            </li>
+            <li>
+                <h3>Neurology</h3>
+                <p>Diagnosis and treatment of neurological disorders, including stroke care.</p>
+            </li>
+            <li>
+                <h3>Pediatrics</h3>
+                <p>Specialized care for children, from infancy to adolescence.</p>
+            </li>
+            <li>
+                <h3>Dermatology</h3>
+                <p>Treatment for skin conditions, including cosmetic and medical dermatology.</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
