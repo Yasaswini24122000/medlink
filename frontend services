@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by Service Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .sendout {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search by Service Name</h1>
+    <h2>Show Profiles Only</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Service Name</th>
+                <th>MRP (₹)</th>
+                <th>Sample</th>
+                <th>Average</th>
+                <th>Department</th>
+                <th>Sendout Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hepatitis D Virus (HDV) IgM antibodies</td>
+                <td>₹ 800</td>
+                <td>SERUM</td>
+                <td>-</td>
+                <td>IMMUNOLOGY / SEROLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>HIV 1 & 2 Antibody (Confirmation test)</td>
+                <td>₹ 100</td>
+                <td>SERUM</td>
+                <td>-</td>
+                <td>IMMUNOLOGY / SEROLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>New Born Screening - TMS S2 conditions</td>
+                <td>₹ 2,500</td>
+                <td>WB EDTA</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>New Born Screening - TMS S2+111 conditions on GCMS+11 conditions</td>
+                <td>₹ 6,240</td>
+                <td>DBS/WB EDTA</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Amino Acid Quantitative Urine</td>
+                <td>₹ 5,800</td>
+                <td>URINE</td>
+                <td>-</td>
+                <td>SPECIALITY - BIOCHEMISTRY</td>
+                <td class="sendout">Sendout</td>
+            </tr>
+            <tr>
+                <td>Vitamin K1</td>
+                <td>₹ 550</td>
+                <td>SERUM</td>
+                <td>-</td>
+                <td>SPECIALITY - BIOCHEMISTRY</td>
+                <td class="sendout">Sendout</td>
+            </tr>
+            <tr>
+                <td>Tissue biomarker: PDL1</td>
+                <td>₹ 13,000</td>
+                <td>Paraffin Block</td>
+                <td>-</td>
+                <td>HISTOPATHOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Strongyloidiasis serology, Serum by EIA</td>
+                <td>₹ 6,500</td>
+                <td>SERUM</td>
+                <td>-</td>
+                <td>IMMUNOLOGY / SEROLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>SINGLE MICA ANTIGEN PANEL</td>
+                <td>₹ 23,500</td>
+                <td>Serum / EDTA Plasma</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Molecular Genetics for MTHFR gene analysis (C677T / A1298C)</td>
+                <td>₹ 2,716</td>
+                <td>WB EDTA</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Molecular Genetic Cystic fibrosis 18 mutations multiplex RT-PCR</td>
+                <td>₹ 4,656</td>
+                <td>WB EDTA</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Molecular Genetic UGT1A1 (GILBERT'S SYNDROME) Mutation Analysis</td>
+                <td>₹ 4,500</td>
+                <td>WB EDTA</td>
+                <td>-</td>
+                <td>GENETICS AND MOLECULAR BIOLOGY</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
