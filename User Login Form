@@ -1,0 +1,225 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "hospital_management";
+ 
+$conn = new mysqli($servername, $username, $password, $dbname);
+ 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+ 
+$error_message = ""; // Variable to store the error message
+$selected_role = "Staff"; // Default role
+ 
+// Handle login form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = isset($_POST['role']) ? $_POST['role'] : $selected_role;
+ 
+    // Fetch user details from userdb table
+    $stmt = $conn->prepare("SELECT id, role, email, password FROM userdb WHERE email = ? AND role = ?");
+    $stmt->bind_param("ss", $email, $role);
+    $stmt->execute();
+    $result = $stmt->get_result();
+ 
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+ 
+        // Verify the password
+        if (password_verify($password, $user['password'])) {
+            // Save login details in loginDB table
+            $login_time = date('Y-m-d H:i:s');
+            $stmt = $conn->prepare("INSERT INTO loginDB (user_id, role, username, login_time) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("isss", $user['id'], $user['role'], $email, $login_time);
+ 
+            if ($stmt->execute()) {
+                // Redirect to dashboard or home page
+                header("Location: dashboard.php");
+                exit();
+            } else {
+                echo '<div class="alert alert-danger text-center">Error saving login details: ' . $conn->error . '</div>';
+            }
+        } else {
+            $error_message = 'Invalid password. Please try again.';
+        }
+    } else {
+        $error_message = 'Invalid username or role. Please try again.';
+    }
+ 
+    $stmt->close();
+}
+?>
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Democratising Healthcare Diagnostics - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+ 
+        .login-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+ 
+        h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+ 
+        .login-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+ 
+        .login-buttons button {
+            padding: 8px 20px;
+            border-radius: 4px;
+            border: 1px solid #0d6efd;
+            background-color: white;
+            color: #0d6efd;
+            font-weight: normal;
+        }
+       
+        .login-buttons button.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+ 
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+ 
+        .forgot-password {
+            display: block;
+            margin: 15px 0;
+            color: #0d6efd;
+            text-decoration: none;
+            text-align: center;
+        }
+ 
+        .signin-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+ 
+        .jobvacancy-btn {
+            background-color: #ffc107;
+            color: black;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+ 
+        .alert {
+            margin-bottom: 20px;
+        }
+ 
+        .vacancy-email {
+            color: #666;
+            margin-top: 15px;
+        }
+ 
+        .hidden-role {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container login-container">
+        <h1>Democratising Healthcare Diagnostics</h1>
+       
+        <?php if (!empty($error_message)): ?>
+            <div class="alert alert-danger"><?php echo $error_message; ?></div>
+        <?php endif; ?>
+       
+        <div class="login-buttons">
+            <button type="button" class="btn <?php echo ($selected_role == 'Staff') ? 'active' : ''; ?>" id="centre-login" data-role="Staff">Centre Login</button>
+            <button type="button" class="btn <?php echo ($selected_role == 'Doctor') ? 'active' : ''; ?>" id="doctor-login" data-role="Doctor">Doctor Login</button>
+            <button type="button" class="btn <?php echo ($selected_role == 'Admin') ? 'active' : ''; ?>" id="admin-login" data-role="Admin">Admin Login</button>
+        </div>
+       
+        <form method="POST">
+            <div class="login-form">
+                <input type="text" id="username" name="email" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="hidden" id="role" name="role" value="<?php echo $selected_role; ?>">
+               
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button type="submit" class="signin-btn">Sign in using our secure server</button>
+            </div>
+        </form>
+       
+       
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script to handle role selection
+        document.querySelectorAll('.login-buttons button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.login-buttons button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+               
+                // Add active class to clicked button
+                this.classList.add('active');
+               
+                // Set the selected role in the hidden input
+                document.getElementById('role').value = this.getAttribute('data-role');
+               
+                // Focus the username field
+                document.getElementById('username').focus();
+            });
+        });
+       
+        // Script for jobvacancy button
+        document.querySelector('.jobvacancy-btn').addEventListener('click', function() {
+            // Set predefined values for jobvacancy login
+            document.getElementById('username').value = 'freelobvacancyalerts@gmail.com';
+            document.getElementById('role').value = 'Staff'; // Default role for job vacancy
+           
+            // Focus password field
+            document.getElementById('password').focus();
+        });
+    </script>
+</body>
+</html>
