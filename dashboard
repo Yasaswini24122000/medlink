@@ -69,44 +69,15 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>#76352</td>
-                    <td>Deepika, 30 years</td>
-                    <td>77449</td>
-                    <td>242453284</td>
-                    <td>SELF</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td><button class="review">Review</button></td>
-                </tr>
-                <tr>
-                    <td>#76353</td>
-                    <td>MUNIRATHINA...</td>
-                    <td>77450</td>
-                    <td>242453283</td>
-                    <td>SELF</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td><button class="review">Review</button></td>
-                </tr>
-                <tr>
-                    <td>#76190</td>
-                    <td>BALASUBRAMA...</td>
-                    <td>77278</td>
-                    <td>242453282</td>
-                    <td>SELF</td>
-                    <td>0</td>
-                    <td>2</td>
-                    <td><button class="review">Review</button></td>
-                </tr>
-            </tbody>
+            
         </table>
 
     </div>
 
 </body>
 </html>
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
