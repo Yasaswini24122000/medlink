@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Orders Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Payment & Dues Section -->
+        <div class="payment-summary">
+            <div class="advance">
+                <h3>Advance (₹)</h3>
+                <p class="green">0</p>
+                <p>This advance would be utilized when orders are booked</p>
+            </div>
+            <div class="current-due">
+                <h3>Current Due (₹)</h3>
+                <p class="due-amount">-2,000/-100,000</p>
+                <p>7 Days Remaining to repay your dues</p>
+                <button class="pay-now">Pay Now</button>
+            </div>
+        </div>
+
+        <!-- Orders Overview -->
+        <div class="order-summary">
+            <div class="summary-box">
+                <h3>9</h3>
+                <p>Patients Ordered</p>
+            </div>
+            <div class="summary-box">
+                <h3>4</h3>
+                <p>Samples Received</p>
+            </div>
+            <div class="summary-box">
+                <h3>10</h3>
+                <p>Reports Ready</p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search By Patient Name, Patient ID, Accession No, National ID, Passport No">
+            <button>🔍</button>
+        </div>
+
+        <!-- Date Range Picker -->
+        <div class="date-range">
+            <input type="date" value="">
+            <span>to</span>
+            <input type="date" value="">
+            <button class="refresh">Refresh</button>
+        </div>
+
+        <!-- Orders Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Order ID</th>
+                    <th>Accession No</th>
+                    <th>Provider</th>
+                    <th>Pending</th>
+                    <th>Dispatched</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#76352</td>
+                    <td>Deepika, 30 years</td>
+                    <td>77449</td>
+                    <td>242453284</td>
+                    <td>SELF</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td><button class="review">Review</button></td>
+                </tr>
+                <tr>
+                    <td>#76353</td>
+                    <td>MUNIRATHINA...</td>
+                    <td>77450</td>
+                    <td>242453283</td>
+                    <td>SELF</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td><button class="review">Review</button></td>
+                </tr>
+                <tr>
+                    <td>#76190</td>
+                    <td>BALASUBRAMA...</td>
+                    <td>77278</td>
+                    <td>242453282</td>
+                    <td>SELF</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td><button class="review">Review</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment Summary */
+.payment-summary {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.advance, .current-due {
+    text-align: center;
+    flex: 1;
+}
+
+.green {
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.due-amount {
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pay-now {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Orders Summary */
+.order-summary {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.summary-box {
+    text-align: center;
+}
+
+.summary-box h3 {
+    font-size: 24px;
+    color: black;
+}
+
+.search-bar {
+    display: flex;
+    margin: 10px 0;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 8px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+/* Date Range */
+.date-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.refresh {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background: #f4f4f4;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.review {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
