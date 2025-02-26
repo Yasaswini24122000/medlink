@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-User Registration & Login</title>
+<style>
+
+        /* Reset Styles */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: Arial, sans-serif;
+
+        }
+ 
+      
+ 
+        /* Button Container */
+
+        .button-container {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+        }
+ 
+        .btn-toggle {
+
+            background: #4285F4;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+
+        }
+ 
+        .btn-toggle:hover {
+
+            background: #357ae8;
+
+        }
+ 
+        /* Form Container */
+
+        .container {
+
+            display: none;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+            text-align: center;
+
+            width: 100%;
+
+            max-width: 400px;
+
+        }
+ 
+        /* Heading */
+
+        h2 {
+
+            margin-bottom: 20px;
+
+            color: #333;
+
+            font-size: 22px;
+
+        }
+ 
+        /* Form Labels */
+
+        label {
+
+            display: block;
+
+            text-align: left;
+
+            font-weight: bold;
+
+            margin-top: 10px;
+
+        }
+ 
+        /* Input Fields */
+
+        input, select {
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-top: 5px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+
+        }
+ 
+        /* Submit Button */
+
+        .btn {
+
+            width: 100%;
+
+            background: #4285F4;
+
+            color: white;
+
+            padding: 12px;
+
+            border: none;
+
+            margin-top: 20px;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+
+        }
+ 
+        .btn:hover {
+
+            background: #357ae8;
+
+        }
+</style>
+</head>
+<body>
+ 
+    <!-- Toggle Buttons -->
+<div class="button-container">
+<button class="btn-toggle" onclick="showForm('branch')">Branch Login</button>
+<button class="btn-toggle" onclick="showForm('doctor')">Doctor Login</button>
+<button class="btn-toggle" onclick="showForm('admin')">Admin Login</button>
+</div>
+ 
+    <!-- Branch Registration -->
+<div id="branch" class="container">
+<h2>Branch Login</h2>
+<form id="branchForm">
+<label for="branch-name">Branch Name</label>
+<input type="text" id="branch-name" name="branch-name" placeholder="Enter Branch Name" required>
+<label for="location">Location</label>
+<input type="text" id="location" name="location" placeholder="Enter Location" required>
+<label for="username">Username</label>
+<input type="text" id="branch-username" name="username" placeholder="Enter Username" required>
+<label for="password">Password</label>
+<input type="password" id="branch-password" name="password" placeholder="Enter Password" required>
+<label for="confirm-password">Confirm Password</label>
+<input type="password" id="doctor-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+<button type="submit" class="btn">Register</button>
+</form>
+</div>
+ 
+    <!-- Doctor Registration -->
+<div id="doctor" class="container">
+<h2>Doctor Login</h2>
+<form id="doctorForm">
+<label for="doctor-name">Doctor Name</label>
+<input type="text" id="doctor-name" name="doctor-name" placeholder="Enter Doctor Name" required>
+<label for="department">Department</label>
+<select id="department" name="department" required>
+<option value="" disabled selected>Select Department</option>
+<option value="cardiology">Cardiology</option>
+<option value="neurology">Neurology</option>
+<option value="orthopedics">Orthopedics</option>
+<option value="radiology">Radiology</option>
+<option value="dermatology">Dermatology</option>
+<option value="general-medicine">General Medicine</option>
+</select>
+<label for="username">Username</label>
+<input type="text" id="doctor-username" name="username" placeholder="Enter Username" required>
+<label for="password">Password</label>
+<input type="password" id="doctor-password" name="password" placeholder="Enter Password" required>
+<label for="confirm-password">Confirm Password</label>
+<input type="password" id="doctor-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+<button type="submit" class="btn">Register</button>
+</form>
+</div>
+ 
+    <!-- Admin Login -->
+<div id="admin" class="container">
+<h2>Admin Login</h2>
+<form id="adminForm">
+<label for="admin-name">Admin Name</label>
+<input type="text" id="admin-name" name="admin-name" placeholder="Enter Admin Name" required>
+<label for="username">Username</label>
+<input type="text" id="admin-username" name="username" placeholder="Enter Username" required>
+<label for="password">Password</label>
+<input type="password" id="admin-password" name="password" placeholder="Enter Password" required>
+<label for="confirm-password">Confirm Password</label>
+<input type="password" id="admin-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+<button type="submit" class="btn">Login</button>
+</form>
+</div>
+ 
+    <script>
+
+        function showForm(formId) {
+
+            const forms = document.querySelectorAll('.container');
+
+            forms.forEach(form => form.style.display = 'none');
+
+            document.getElementById(formId).style.display = 'block';
+
+        }
+</script>
+ 
+</body>
+</html>
+
+ 
