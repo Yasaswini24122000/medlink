@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        .form-row div {
+            flex: 1;
+        }
+        .otp-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .otp-container input {
+            flex: 1;
+        }
+        .otp-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .otp-button:hover {
+            background-color: #218838;
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Patient Registration</h2>
+    <form id="patientForm">
+        <label>Enter Patient ID *</label>
+        <input type="text" id="patient_id" name="patient_id" readonly>
+        
+        <label>Enter Patient Name *</label>
+        <input type="text" name="patient_name" placeholder="Enter Patient Name" required>
+
+        <label>Mobile Number *</label>
+        <div class="otp-container">
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
+            <button type="button" class="otp-button" onclick="sendOTP('mobile')">Send OTP</button>
+        </div>
+        <div class="otp-container">
+            <input type="text" id="mobileOtp" placeholder="Enter Mobile OTP">
+            <button type="button" class="otp-button" onclick="verifyOTP('mobile')">Verify</button>
+        </div>
+
+        <label>Email Address *</label>
+        <div class="otp-container">
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            <button type="button" class="otp-button" onclick="sendOTP('email')">Send OTP</button>
+        </div>
+        <div class="otp-container">
+            <input type="text" id="emailOtp" placeholder="Enter Email OTP">
+            <button type="button" class="otp-button" onclick="verifyOTP('email')">Verify</button>
+        </div>
+
+        <label>Gender*</label>
+        <select name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <div class="form-row">
+            <div>
+                <label>Age *</label>
+                <input type="number" name="age" placeholder="Age" required>
+            </div>
+            <div>
+                <label>DOB*</label>
+                <input type="date" name="DOB">
+            </div>
+        </div>
+
+        <label>Address*</label>
+        <input type="text" name="address" placeholder="Address">
+
+        <label>City*</label>
+        <input type="text" name="city" placeholder="City">
+
+        <label>State*</label>
+        <input type="text" name="state" placeholder="State">
+
+        <label>Pincode*</label>
+        <input type="text" name="pincode" placeholder="Pincode">
+
+        <div class="button-container">
+            <button type="submit">Register</button>
+            <button type="button" onclick="registerAndBill()">Register and Bill</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function generatePatientID() {
+        document.getElementById("patient_id").value = "PAT" + Math.floor(100000 + Math.random() * 900000);
+    }
+    
+    let generatedOTPs = { mobile: "", email: "" };
+    
+    function sendOTP(type) {
+        generatedOTPs[type] = Math.floor(1000 + Math.random() * 9000);
+        alert(`Your OTP for ${type} is: ${generatedOTPs[type]}`);
+    }
+
+    function verifyOTP(type) {
+        let enteredOTP = document.getElementById(type + "Otp").value;
+        if (enteredOTP == generatedOTPs[type]) {
+            alert(`${type} OTP Verified Successfully!`);
+        } else {
+            alert(`Invalid ${type} OTP!`);
+        }
+    }
+
+    document.getElementById("patientForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Patient Registered Successfully!");
+        window.location.href = "https://singamaid.shop/services/"; // Redirect to Services Page
+    });
+
+    function registerAndBill() {
+        alert("Patient Registered and Billing Process Started!");
+        window.location.href = "https://singamaid.shop/services/"; // Redirect to Services Page
+    }
+
+    window.onload = generatePatientID;
+</script>
+
+</body>
+</html>
