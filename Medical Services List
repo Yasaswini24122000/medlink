@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Services List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #1976D2;
+            color: white;
+        }
+
+        td {
+            background-color: #fdfdfd;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #1976D2;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #payment-summary {
+            display: none;
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        #payment-summary h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Medical Services List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>Service Name</th>
+            <th>Service Cost (₹)</th>
+            <th>MRP (₹)</th>
+            <th>Sample Type</th>
+            <th>Department</th>
+            <th>Sendout Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="800" value="Hepatitis D Virus (HDV) IgM antibodies"></td>
+            <td>Hepatitis D Virus (HDV) IgM antibodies</td>
+            <td>800</td>
+            <td>1,800</td>
+            <td>SERUM</td>
+            <td>IMMUNOLOGY</td>
+            <td>Not Sendout</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="100" value="HIV 1 & 2 Antibody (Confirmation test)"></td>
+            <td>HIV 1 & 2 Antibody (Confirmation test)</td>
+            <td>100</td>
+            <td>800</td>
+            <td>SERUM</td>
+            <td>IMMUNOLOGY</td>
+            <td>Not Sendout</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="5800" value="Amino Acid Quantitative Urine"></td>
+            <td>Amino Acid Quantitative Urine</td>
+            <td>5,800</td>
+            <td>5,400</td>
+            <td>URINE</td>
+            <td>BIOCHEMISTRY</td>
+            <td>Sendout</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="550" value="Vitamin K1"></td>
+            <td>Vitamin K1</td>
+            <td>₹ 550</td>
+            <td>₹ 5,200</td>
+            <td>SERUM</td>
+            <td>SPECIALITY - BIOCHEMISTRY</td>
+            <td>Sendout</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="13000" value="Tissue biomarker: PDL1"></td>
+            <td>Tissue biomarker: PDL1</td>
+            <td>₹ 13,000</td>
+            <td>₹ 16,500</td>
+            <td>PARAFFIN BLOCKS</td>
+            <td>HISTOPATHOLOGY</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="6500" value="Strongyloidiasis serology, Serum by EIA**"></td>
+            <td>Strongyloidiasis serology, Serum by EIA**</td>
+            <td>₹ 6,500</td>
+            <td>₹ 10,500</td>
+            <td>SERUM</td>
+            <td>IMMUNOLOGY / SEROLOGY</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="23500" value="SINGLE MICA ANTIGEN PANEL"></td>
+            <td>SINGLE MICA ANTIGEN PANEL</td>
+            <td>₹ 23,500</td>
+            <td>₹ 150,000</td>
+            <td>Serum / EDTA</td>
+            <td>GENETICS AND MOLECULAR MEDICINE</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="2716" value="Molecular Genetics for MTHFR gene analysis (C677T / A1298C)-RT-PCR"></td>
+            <td>Molecular Genetics for MTHFR gene analysis (C677T / A1298C)-RT-PCR</td>
+            <td>₹ 2,716</td>
+            <td>₹ 9,500</td>
+            <td>WB EDTA</td>
+            <td>GENETICS AND MOLECULAR MEDICINE</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="service-checkbox" data-cost="4500" value="Molecular Genetic UGT1A1 (GILBERT’S SYNDROME) Mutation Analysis RT-PCR"></td>
+            <td>Molecular Genetic UGT1A1 (GILBERT’S SYNDROME) Mutation Analysis RT-PCR</td>
+            <td>₹ 4,500</td>
+            <td>₹ 5,500</td>
+            <td>WB EDTA</td>
+            <td>GENETICS AND MOLECULAR MEDICINE</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Proceed to Payment Button (Moved Below the Table) -->
+ <div style="display: flex; justify-content: center; align-items: center;">
+    <button  onclick="getSelectedServices()">Proceed to Payment </button>
+
+ </div>
+
+<!-- Payment Summary Section -->
+<div id="payment-summary">
+    <h3>Payment Summary</h3>
+    <p id="selected-services-list"></p>
+    <p><strong>Total Cost: ₹<span id="total-cost">0</span></strong></p>
+    <button onclick="makePayment()">Make Payment</button>
+</div>
+
+<script>
+    function getSelectedServices() {
+        const selectedServices = [];
+        let totalCost = 0;
+
+        const checkboxes = document.querySelectorAll('.service-checkbox:checked');
+        checkboxes.forEach(cb => {
+            selectedServices.push(cb.value);
+            totalCost += parseFloat(cb.getAttribute('data-cost'));
+        });
+
+        if (selectedServices.length > 0) {
+            document.getElementById('selected-services-list').innerText = selectedServices.join(', ');
+            document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+            document.getElementById('payment-summary').style.display = 'block';
+        } else {
+            alert("Please select at least one service.");
+            document.getElementById('payment-summary').style.display = 'none';
+        }
+    }
+
+    function makePayment() {
+        alert("Redirecting to payment gateway...");
+        // Actual payment integration can go here
+    }
+</script>
+
+</body>
+</html>
